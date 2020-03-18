@@ -5,6 +5,7 @@ class Member < ApplicationRecord
 	has_many :tenants, dependent: :destroy
 	has_many :payment_records
 	has_many :complains
+	has_one :user,dependent: :destroy
 	
 
 	def self.monthly_mail

@@ -1,4 +1,4 @@
-<%= form_with model:@vehical_slot,local:true,url:vehical_slot_path do |f| %>
+<%= form_with model:@vehical_slot,local:true,url:vehical_slot_vehicals_path do |f| %>
     <div class="form-group">
       <%= select_tag(:vehical, options_from_collection_for_select(Vehical.all, :vehical_no, :vehical_no ,:id), include_blank: "Select Vehical") %>
     </div>

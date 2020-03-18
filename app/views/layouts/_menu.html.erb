@@ -9,9 +9,9 @@
     </div>
 <div class="sidenav">
   <% if current_user.has_role?:admin %>
-        <%= link_to "Dashbord" ,dashbord_path%>
+        <%= link_to "Dashbord" ,home_dashbords_path%>
         <%= link_to "Member",members_path%>
-        <%= link_to "Expense", expense_path%>
+        <%= link_to "Expense", expense_list_expense_index_path%>
         <%= link_to "Tenant", tenants_path%>
         <%= link_to "Vehical",vehicals_path%>
         <%= link_to "Maintenance",maintenances_path%>

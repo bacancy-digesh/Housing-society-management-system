@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_16_080319) do
+ActiveRecord::Schema.define(version: 2020_03_18_065908) do
 
   create_table "complains", force: :cascade do |t|
     t.string "subject"
@@ -100,7 +100,9 @@ ActiveRecord::Schema.define(version: 2020_03_16_080319) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "member_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["member_id"], name: "index_users_on_member_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -131,4 +133,5 @@ ActiveRecord::Schema.define(version: 2020_03_16_080319) do
     t.index ["member_id"], name: "index_visitors_on_member_id"
   end
 
+  add_foreign_key "users", "members"
 end

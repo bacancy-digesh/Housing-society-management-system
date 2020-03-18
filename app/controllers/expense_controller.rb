@@ -1,28 +1,26 @@
-class ExpenceController < ApplicationController
-	def expense
-	end
+class ExpenseController < ApplicationController
+	
 
 	def expense_list
 		@expense=Expense.all
 	end
 
 	def search
-
 		@expense=Expense.where(date: params[:Start_date]..params[:End_date])
+		
 		if @expense != nil
-			
 			render :expense_list, :object => @expense
-			
 		end
 	end
 
 	def add_expense
+		@expense =Expense.new
 	end
 
 	def create
 		@expense = Expense.new(params_permit)
 		if @expense.save
-			redirect_to expense_path
+			redirect_to expense_list_expense_index_path
 		else
 			render :add_expense
 		end
@@ -31,6 +29,7 @@ class ExpenceController < ApplicationController
 
 	private
 	def params_permit
-		params.permit(:title, :description, :date, :amount)
+		byebug
+		params.require(:expense).permit(:title, :description, :date, :amount)
 	end
 end

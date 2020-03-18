@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 		@maintenance_amount=Maintenance.last.amount
 		@pendding_complain = Complain.where(status: false,member_id: @@user.id)
 		@all_complain= Complain.where(member_id: @@user.id)
+		@visitors = Visitor.where(member_id: @@user.id)
 	end
 
 	def complain

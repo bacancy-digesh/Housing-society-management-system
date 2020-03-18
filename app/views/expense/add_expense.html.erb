@@ -2,7 +2,7 @@
 <div class="main">
 	<div class="login-form">
 		<h2 class="text-center">Add Expanse</h2>
-		<%= form_with model:@expense,local:true,url:expense_path do |f| %>
+		<%= form_with model:@expense , local: true, url:expense_index_path do |f| %>
 			<div class="form-group">
 			    <%= f.label :title %><br />
 			    <%= f.text_field :title, autofocus: true,class: "form-control" %>
