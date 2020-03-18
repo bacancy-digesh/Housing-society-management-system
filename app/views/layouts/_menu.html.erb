@@ -1,0 +1,20 @@
+
+    <div class="d-flex flex-row-reverse">
+      <div class="p-2">
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      </div>
+      <div class="p-2" style="font-size: 25px">
+         <%= current_user.email%>  
+      </div>
+    </div>
+<div class="sidenav">
+  <% if current_user.has_role?:admin %>
+        <%= link_to "Dashbord" ,dashbord_path%>
+        <%= link_to "Member",members_path%>
+        <%= link_to "Expense", expense_path%>
+        <%= link_to "Tenant", tenants_path%>
+        <%= link_to "Vehical",vehicals_path%>
+        <%= link_to "Maintenance",maintenances_path%>
+        <%= link_to "Notice",new_notice_path%>
+        <% end%>
+ </div>

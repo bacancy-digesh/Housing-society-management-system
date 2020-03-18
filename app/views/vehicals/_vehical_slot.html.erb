@@ -1,0 +1,16 @@
+<%= form_with model:@vehical_slot,local:true,url:vehical_slot_path do |f| %>
+    <div class="form-group">
+      <%= select_tag(:vehical, options_from_collection_for_select(Vehical.all, :vehical_no, :vehical_no ,:id), include_blank: "Select Vehical") %>
+    </div>
+
+			<div class="form-group">
+			    <%= f.label :slot %><br />
+			    <%= f.text_field :slot, autofocus: true,class: "form-control" %>
+  			</div>
+       
+  			<div class="form-group">
+    			<%= f.submit "Submit" , class:"btn btn-primary btn-block"%>
+  			</div>
+
+
+<%end%>

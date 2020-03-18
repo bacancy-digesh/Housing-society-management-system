@@ -1,0 +1,36 @@
+<% if current_user.has_role?:admin %>
+<div class="main">
+  
+	<div class="d-flex flex-row-reverse">
+      <div class="p-2">
+        <div class="btn btn-primary">
+        <%= link_to "Add Expense",add_expense_path, :class=>"btn" %>
+      </div>
+      </div>
+  </div>
+
+
+<%= form_with model:@search,local:true,url:search_expense_path do |f| %>
+  <div class="d-flex justify-content-center">
+     <div class="p-2 bd-highlight">
+        <%= f.label :Start_date %>
+        </div>
+     <div class="p-2 bd-highlight">
+        <%= f.date_field :Start_date, autofocus: true,class: "form-control" %>
+     </div>
+     <div class="p-2 bd-highlight">
+        <%= f.label :End_date %>
+        </div>
+     <div class="p-2 bd-highlight">
+        <%= f.date_field :End_date, autofocus: true,class: "form-control"%>
+     </div>
+     <div class="p-2 bd-highlight">
+      <%= f.submit "Search" , class:"btn btn-primary btn-block"%>
+     </div>
+  </div>
+<%end%>
+
+ <%= render 'expense' %>
+</div>
+<%end%>
+	

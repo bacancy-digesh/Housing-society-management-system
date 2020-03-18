@@ -1,0 +1,39 @@
+<%  if current_user.has_role? :admin %>
+<%= javascript_pack_tag 'maintenance' %>
+<div class="main">
+	
+
+	<%= form_with model:@maintenance,local:true,url:update_paymet_status_path do |f|%>
+<center>
+		<div class="form-group">
+			<p>Select block</p>
+      		<%= select_tag(:owner_block, options_from_collection_for_select(Member.select(:block).distinct, :block, :block), include_blank: "Select Block") %>
+    	</div>
+
+		</center>
+
+  		<div style="display: none;" id="owner_detail">
+  			<table  class="table">
+  				<thead class="thead-light">
+			  		<tr>
+				  		<th>Name</th>
+				  		<th>Contact no</th>
+				  		<th>Block</th>
+				  		<th>Amount</th>
+			  		</tr>
+			  	</thead>
+			  	<tbody id="members">
+			  		
+			  	</tbody>
+			  </table>
+  			</table>
+  			<div class="form-group">
+  				<%= f.submit "Payment Done", class: "btn btn btn-primary"%>
+  			</div>
+
+  		</div>
+
+	<%end%>
+</div>
+<%end%>
+

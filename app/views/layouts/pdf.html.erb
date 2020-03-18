@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PDFs - Ruby on Rails</title>
+   <%= wicked_pdf_stylesheet_link_tag "application" %>
+ </head>
+<body>
+    
+    
+    <table class="table">
+  		<thead class="thead-light">
+  		<tr>
+	  		<th>Name</th>
+	  		<th>Contact no</th>
+	  		<th>email</th>
+	  		<th>Block</th>
+	  		<th>House No</th>
+	  		<th></th>
+	  		<th></th>
+	  		<th></th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<% @people.each do |e| %>
+  		<tr>
+  			<td><%= e.owner_name %></td>
+  			<td><%= e.contact_no %></td>
+  			<td><%= e.email%></td>
+  			<td><%= e.block %></td>
+  			<td><%= e.house_no %></td>
+  		</tr>
+  		<%end%>
+  	</tbody>
+  </table>
+</body>
+</html>

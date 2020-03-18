@@ -1,0 +1,109 @@
+<%= javascript_pack_tag 'tenant' %>
+<div class="main">
+
+	<%= form_with model:@search,local:true,url:search_vehical_path do |f| %>
+  		<div class="d-flex justify-content-center">
+
+  			<div class="p-2 bd-highlight">
+  				<div class="form-group">
+  					<%= f.search_field :vehical_no, autofocus: true,class: "form-control" %>
+  				</div>
+  			</div>
+  			<div class="p-2 bd-highlight">
+  				<div class="form-group">
+  					<%= f.submit "Search" , class:"btn btn-primary btn-block"%>
+  				</div>
+  			</div>
+       
+  		</div>
+	<%end%>
+<%  if current_user.has_role? :admin %>
+	<div class="d-flex flex-row-reverse">
+      <div class="p-2">
+      	<!-- <div class="btn btn-primary"> -->
+        	<%#= link_to "Add Vehical",:class => "text-light" %>
+          <a href="#add_vehical" role="button" class="btn btn-primary" data-toggle="modal">Add Vehical</a>
+    	<!-- </div> -->
+      </div>
+      
+      <div class="p-2">
+      	<!-- <div class="btn btn-primary"> -->
+        	<%#= link_to "Add Partking slot" ,:class => "text-light" %>
+    	<!-- </div> -->
+      <a href="#add_parking_slot" role="button" class="btn btn-primary" data-toggle="modal">Add Parking Slot</a>
+      </div>
+  	</div>
+
+<div id="add_vehical" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Vehical</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'vehical' %>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="add_parking_slot" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Parking Slot</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'vehical_slot' %>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<%end%>
+
+<% if @vehical!=nil%>
+    <div>
+    <table class="table">
+      <tr>
+        <td>Vehical No</td>
+        <td id="vehical_no"><%= @vehical.vehical_no %></td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td><%= @vehical.description %></td>
+      </tr>
+      <tr>
+        <td>Parking Slot</td>
+        <td><%= @slot %></td>
+      </tr>
+      <tr>
+        <td>Owner</td>
+        <td><%= @vehical.member.owner_name%></td>
+      </tr>
+      <tr>
+        <td>Contact No</td>
+        <td><%= @vehical.member.contact_no %></td>
+      </tr>
+      <tr>
+        <td><div class="p-2">
+            <div class="btn btn-primary">
+              <%= link_to "Delete",vehical_path(@vehical),method: :delete,:class => "text-light"%>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <%end%>
+</div>

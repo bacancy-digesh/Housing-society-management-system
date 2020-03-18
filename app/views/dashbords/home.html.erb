@@ -1,0 +1,213 @@
+<% if current_user.has_role?:admin %>
+ 
+
+<div class="main">
+	<div class="row">
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><%= @member_count%></h3>
+
+                <p>Members</p>
+              </div>
+              </div>
+          </div>
+
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success ">
+              <div class="inner">
+                <h3><%= @tenant%></h3>
+
+                <p>Tenants</p>
+              </div>
+              </div>
+          </div>
+    </div>
+  <div class="row">
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><%= @maintenance_amount.amount%></h3>
+
+                <div class="d-flex">
+                <p>Current Maintenance  </p>
+                <a href="#change_maitenance"  class=" text-red ml-auto" data-toggle="modal">Change</a>
+
+              
+                </div>
+              </div>
+              </div>
+          </div>
+
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3><%= @pendding_maintanence_of_current_month %></h3>
+
+                <p>Pendding Maintenance of Current Month</p>
+              </div>
+             
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 col-6">
+      <!-- small box -->
+      <div class="small-box bg-dark ">
+        <div class="inner">
+
+          <h3 class="text-light">Complains</h3>
+          <a href="#complain"  class="btn btn-primary text-red ml-auto" data-toggle="modal">Latest Complain</a>
+         <a href="#pendding_complain"  class="btn btn-primary text-red ml-auto" data-toggle="modal">Pendding Complain</a>
+         <a href="#all_complain"  class="btn btn-primary text-red ml-auto" data-toggle="modal">All Complain</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+
+  <div id="change_maitenance" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Change Maitenance</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <%= form_with model:@vehical,local:true,url:creat_path do |f| %>
+                    <div class="form-group">
+                        <%= f.label :amount %><br />
+                        <%= f.text_field :amount, autofocus: true,class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.submit "Submit" , class:"btn btn-primary btn-block"%>
+                    </div>
+                  <%end%>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+  </div>
+
+<div id="complain" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> All Complains</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+       <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Subject</th>
+              <th>Description</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+              <% @latest_complain.each do |complain| %>
+              <tr>
+                <td><%= complain.subject %></td>
+                <td><%= complain.description %></td>
+                <td><%= complain.status %></td>
+              </tr>
+              <%end%>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="pendding_complain" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> All Complains</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+       <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Subject</th>
+              <th>Description</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+              <% @pendding_complain.each do |complain| %>
+              <tr>
+                <td><%= complain.subject %></td>
+                <td><%= complain.description %></td>
+                <td><%= complain.status %></td>
+              </tr>
+              <%end%>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div id="all_complain" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> All Complains</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+       <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Subject</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Name</th>
+              <th>Contact No </th>
+            </tr>
+            </thead>
+            <tbody>
+              <% @all_complain.each do |complain| %>
+              <tr>
+                <td><%= complain.subject %></td>
+                <td><%= complain.description %></td>
+                <td><%= complain.status %></td>
+                <td><%= complain.member.owner_name%></td>
+                <td><%= complain.member.contact_no%></td>
+              </tr>
+              <%end%>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+</div>
+<%end%>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HousingScocietyManagementSystem</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+ <body>
+    <% if user_signed_in? %>
+        <%= render 'layouts/menu'%>
+   <%end%>
+    <div class="main">
+    <p class="notice"><%= notice %></p>
+    <p class="alert-alert"><%= alert %></p>
+  </div>
+ 
+    <%= yield %>
+    
+  </body>
+</html>

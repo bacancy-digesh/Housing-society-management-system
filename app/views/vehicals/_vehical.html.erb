@@ -1,0 +1,35 @@
+<%= form_with model:@vehical,local:true,url:vehicals_path do |f| %>
+    <div class="form-group">
+      <%= select_tag(:owner_block, options_from_collection_for_select(Member.select(:block).distinct, :block, :block), include_blank: "Select Block") %>
+    </div>
+
+<div class="form-group">
+    <%= select_tag(:owner_house_no, options_from_collection_for_select(Member.select(:house_no).distinct,:house_no,:house_no ),include_blank: "Select House No") %>
+  </div>
+  <div style="display: none;" id="owner_detail">
+    <table>
+      <tr>
+        <td>Owner Name :-</td>
+        <td id="owner_name">
+        </td>
+      </tr>
+      <tr>
+        <td>contact no :-</td>
+          <td id="contact_no"></td>
+      </tr>
+    </table>
+  </div>
+			<div class="form-group">
+			    <%= f.label :vehical_no %><br />
+			    <%= f.text_field :vehical_no, autofocus: true,class: "form-control" %>
+  			</div>
+        <div class="form-group">
+          <%= f.label :description %><br />
+          <%= f.text_area :description, autofocus: true,class: "form-control" %>
+        </div>
+  			<div class="form-group">
+    			<%= f.submit "Submit" , class:"btn btn-primary btn-block"%>
+  			</div>
+
+
+<%end%>

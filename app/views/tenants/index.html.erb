@@ -1,0 +1,93 @@
+<%  if current_user.has_role? :admin %>
+<div class="main">
+  <div class="d-flex justify-content-center">
+    <div class="p-2">
+      <h2>Tenants</h2>
+    </div>
+  </div>
+
+	<div class="d-flex flex-row-reverse">
+      <div class="p-2">
+      	<div class="btn btn-primary">
+        <%= link_to "Add Tenants" ,new_tenant_path,:class => "text-light" %>
+    </div>
+      </div>
+  	</div>
+
+	<%= search_form_for @search do |f| %>
+  		<div class="d-flex justify-content-center">
+  			<div class="p-2 bd-highlight">
+  				<div class="form-group">
+  					<%= f.search_field :tenant_name_or_contact_no_cont, autofocus: true,class: "form-control" %>
+  				</div>
+  			</div>
+  			<div class="p-2 bd-highlight">
+  				<div class="form-group">
+  					<%= f.submit "Search" , class:"btn btn-primary btn-block"%>
+  				</div>
+  			</div>
+  		</div>
+	<%end%>
+
+
+
+	<div>
+  	<table class="table">
+  		<thead class="thead-light">
+  		<tr>
+	  		<th>Name</th>
+	  		<th>Contact no</th>
+	  		<th>House Owner Name</th>
+	  		<th>Block</th>
+	  		<th>House No</th>
+	  		<th></th>
+	  		<th></th>
+	  		<th></th>
+  		</tr>
+  	</thead>
+
+  		<% @result.each do |e| %>
+  		<tr>
+  			<td><%= e.tenant_name %></td>
+  			<td><%= e.contact_no %></td>
+  			<td><%= e.member.owner_name%></td>
+  			<td><%= e.member.block %></td>
+  			<td><%= e.member.house_no %></td>
+        <% if current_user.has_role?:admin %>
+  			<td><div class="p-2">
+  					<div class="btn btn-primary">
+  						<%= link_to "Delete",tenant_path(e),method: :delete,:class => "text-light"%>
+  					</div>
+  				</div>
+  			</td>
+  			<td><div class="p-2">
+  					<div class="btn btn-primary">
+  						<%= link_to "Edit",edit_tenant_path(e),methode: :get,:class => "text-light"%>
+  					</div>
+  				</div>
+  			</td>
+  			<td>
+  				<div class="p-2">
+  					<div class="btn btn-primary">
+  						<%= link_to "View",:class => "text-light"%>
+  					</div>
+  				</div>
+  			</td>
+        <% end %>
+  		</tr>
+  		<%end%>
+  	</table>
+  </div>
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2 bg-success">
+      
+  <%= will_paginate @result, renderer: BootstrapPagination::Rails %>
+
+</div>
+</div>
+
+</div>
+<%end%>
+
+
+

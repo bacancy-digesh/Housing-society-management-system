@@ -1,0 +1,42 @@
+<h1>Monthly Maintenance</h1>
+
+<p>
+  <table>
+  	<tr>
+  		<td>Current Maintenance</td>
+  		<td><%= @current_maintenance %></td>
+  	</tr>
+  </table>
+ 
+  	<br>
+  	<p>Expense Detail</p>
+  	<br>
+  	<table class="table">
+  		<thead class="thead-dark">
+	  	<tr>
+	  		<th>Date</th>
+	  		<th>Description</th>
+	  		<th>Amount</th>
+	  	</tr>
+	  </thead>
+	  <tbody>
+	  	<% @expense.each do |expense| %>
+	  	<tr>
+	  		<td><%= expense.date %></td>
+	  		<td><%= expense.description %></td>
+	  		<td><%= expense.amount %></td>
+	  	</tr>
+	  	<%end%>
+	  	<tr>
+	  		<td colspan="3" style="text-align: right;">
+	  			<%= @final_amount %>
+	  		</td>
+	  	</tr>
+	  	<tr>
+	  		<td>Final Maintenance</td>
+	  		<td><%= @current_maintenance + @final_amount %></td>
+	  	</tr>
+	  	</tr>
+	  </tbody>
+  </table>
+</p>

@@ -1,0 +1,16 @@
+<div class="container">
+<%= form_with model:@complain,local:true,url:complain_path do |f| %>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Subject : </label>
+    <%= f.text_field :subject, autofocus: true,class: "form-control" %>
+  </div>
+<div class="form-group">
+  <label for="comment">Message:</label>
+  <%= f.text_area :description, autofocus: true,class: "form-control" %>
+</div>
+
+ <center>
+   <%= f.submit "Send", class: "btn btn-success"%>
+   </center>
+<%end%>
+</div>

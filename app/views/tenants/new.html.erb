@@ -1,0 +1,10 @@
+<%  if current_user.has_role? :admin %>
+<div class="main">
+	<h2 class="text-center">Add Tenant</h2>
+	<br>
+	<br>
+</div>
+
+
+<%= render 'tenant'%>
+<%end%>

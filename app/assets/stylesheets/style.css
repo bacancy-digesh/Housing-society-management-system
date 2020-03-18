@@ -1,0 +1,158 @@
+
+  .login-form {
+    width: 340px;
+      margin: 50px auto;
+  }
+    .login-form form {
+      margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .btn {        
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: center;
+ }
+ .notice{
+    color: #2db300;
+    text-align: center;
+
+ }
+ .navbar {
+  width: 100%;
+  background-color: #4db8ff;
+  overflow: auto;
+  /*justify-content: flex-end;*/
+}
+ a:hover {
+  color: #ff0000;
+}
+a{
+ /* color: #ffffff;*/
+  font-size: 25px;
+  
+}
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 210px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #4db8ff;
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #ff0000;
+}
+
+.main {
+  margin-left: 210px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.small-box {
+    border-radius: .25rem;
+    box-shadow: 0 0 1px 
+    rgba(0,0,0,.125),0 1px 3px
+    rgba(0,0,0,.2);
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+
+}
+.small-box > .inner{
+padding: 10px;
+}
+.small-box h3 {
+
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    padding: 0;
+    white-space: nowrap;
+
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -7.5px;
+  margin-left: -7.5px;
+  
+}
+.col-lg-3 {
+    /*-ms-flex: 0 0 25%;*/
+    flex: 0 0 25%;
+    
+    }
+.col-6 {
+
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+
+}
+.bg-success {
+    background-color: 
+    #28a745 !important;
+}
+.bg-warning {
+    background-color: 
+    #ffc107 !important;
+}
+.bg-danger {
+    background-color: 
+    #dc3545 !important;
+}
+
+button {
+  background-color:#44c767;
+  border-radius:28px;
+  border:1px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:17px;
+  padding:16px 31px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #2f6627;
+}
