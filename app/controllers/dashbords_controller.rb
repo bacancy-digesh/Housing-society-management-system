@@ -9,18 +9,23 @@ class DashbordsController < ApplicationController
 		@latest_complain = Complain.where(created_at: DateTime.current.beginning_of_day..DateTime.current.end_of_day)
 		@pendding_complain = Complain.where(status: false)
 		@all_complain=Complain.all
-	end
-
-	def index
-		redirect_to new_user_session_path
+		@visitors = Visitor.all
 	end
 
 	def create
 		@maintenance=Maintenance.new(params.permit(:amount))
 		if @maintenance.save
-			redirect_to dashbord_path
+			redirect_to home_dashbords_path
 		end
 	end
+
+	def complain_status_change
+		complain= Complain.find(params[:format])
+		complain.status= true
+		if complain.save
+			redirect_to home_dashbords_path
+		end
+	end 
 
 
 end

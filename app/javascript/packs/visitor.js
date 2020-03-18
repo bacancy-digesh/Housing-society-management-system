@@ -3,7 +3,7 @@ $(document).ready(function () {
                 
                 $.ajax({
                     type: "GET",
-                    url: "/tenants/search",
+                    url: "/search",
                     data: {owner_house_no:  $("#owner_house_no").val(),owner_block:  $("#owner_block").val() },
                     ContentType: "application/json; charset=utf-8",
                     dataType: "json",
@@ -19,6 +19,8 @@ $(document).ready(function () {
                             $("#owner_detail").show();
                             $("#owner_name").html(data["owner"]["owner_name"])
                              $("#contact_no").html(data["owner"]["contact_no"])
+                              $("#block").html(data["owner"]["block"])
+                               $("#house_no").html(data["owner"]["house_no"])
                         }
                     }
                 });

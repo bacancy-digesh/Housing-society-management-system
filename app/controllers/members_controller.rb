@@ -28,15 +28,20 @@ class MembersController < ApplicationController
 
 	def create
 		@user = Member.new(params_permit)
-		@user_log_detail=User.new()
-		@user_log_detail.email=params[:member][:email]
-		@user_log_detail.password="#{params[:member][:email].split('@')[0]}@789"
+		
 
 
-		if @user.save && @user_log_detail.save
-			ResetPasswordMailer.reset_password(@user).deliver_now
-			redirect_to members_path
-			flash[:notice]="Member added sucessfully"
+		if @user.save 
+			@user_log_detail=User.new
+			@user_log_detail.email=params[:member][:email]
+			@user_log_detail.password="#{params[:member][:email].split('@')[0]}@789"
+		
+			@user_log_detail.member_id =@user.id
+			if  @user_log_detail.save
+				ResetPasswordMailer.reset_password(@user).deliver_now
+				redirect_to members_path
+				flash[:notice]="Member added sucessfully"
+			end
 		end
 	end
 

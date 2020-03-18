@@ -1,7 +1,7 @@
 <%= javascript_pack_tag 'tenant' %>
 <div class="main">
 
-	<%= form_with model:@search,local:true,url:search_vehical_path do |f| %>
+	<%= form_with model:@search,local:true,url: search_vehicals_path do |f| %>
   		<div class="d-flex justify-content-center">
 
   			<div class="p-2 bd-highlight">
@@ -98,7 +98,7 @@
       <tr>
         <td><div class="p-2">
             <div class="btn btn-primary">
-              <%= link_to "Delete",vehical_path(@vehical),method: :delete,:class => "text-light"%>
+              <%= link_to "Delete",vehicals_path(@vehical),method: :delete,:class => "text-light"%>
             </div>
           </div>
         </td>
