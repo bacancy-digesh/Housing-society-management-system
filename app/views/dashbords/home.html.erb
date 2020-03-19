@@ -1,4 +1,4 @@
-<% if current_user.has_role?:admin %>
+<% if admin? %>
  
 
 <div class="main">
@@ -116,7 +116,7 @@
 
 
 <div id="visitor" class="modal fade" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Pendding Complains</h5>
@@ -130,6 +130,9 @@
               <th>Contact No</th>
               <th>Description</th>
               <th>Time</th>
+              <th>Member Name</th>
+              <th>Member Block</th>
+              <th>Member Contact No</th>
             </tr>
             <tbody>
               <% @visitors.each do |visitor| %>
@@ -138,6 +141,9 @@
                 <td><%= visitor.contact_no %></td>
                 <td><%= visitor.description %></td>
                 <td><%= visitor.created_at %></td>
+                <td><%= visitor.member.owner_name%></td>
+                <td><%= visitor.member.block%></td>
+                <td><%= visitor.member.contact_no%></td>
                 
               </tr>
               <%end%>

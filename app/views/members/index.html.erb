@@ -1,4 +1,4 @@
-<% if current_user.has_role?:admin %>
+<% if admin? %>
 <div class="main">
   <%= link_to 'Download Receipt', members_path( :format => :pdf) %>
   <div class="d-flex justify-content-center">

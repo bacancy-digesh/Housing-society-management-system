@@ -1,4 +1,4 @@
-<%  if current_user.has_role? :admin %>
+<%  if admin? %>
 <%= javascript_pack_tag 'maintenance' %>
 <div class="main">
 	
@@ -7,8 +7,10 @@
 <center>
 		<div class="form-group">
 			<p>Select block</p>
-      		<%= select_tag(:owner_block, options_from_collection_for_select(Member.select(:block).distinct, :block, :block), include_blank: "Select Block") %>
+      		<%= select_tag(:owner_block, options_from_collection_for_select(owner_block, :block, :block), include_blank: "Select Block") %>  
+
     	</div>
+
 
 		</center>
 

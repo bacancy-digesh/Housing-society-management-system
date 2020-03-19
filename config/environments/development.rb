@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -66,14 +68,13 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    #EDITOR="vi" rails credentials:edit
-      address:              'smtp.gmail.com',
-      port:                 587,
-      domain:               'gmail.com',
-      user_name:            'digesh.parecha@bacancytechnology.com',
-      password:             'Parecha1!',
-      authentication:       :plain,
-      enable_starttls_auto: true
-    }
-
+    # EDITOR="vi" rails credentials:edit
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: 'digesh.parecha@bacancytechnology.com',
+    password: 'Parecha1!',
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 end

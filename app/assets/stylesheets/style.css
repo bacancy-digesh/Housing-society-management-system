@@ -26,8 +26,10 @@
     color: #b94a48;
     text-align: center;
  }
- .notice{
-    color: #2db300;
+ .notice-notice{
+    color: #3333ff;
+    background-color: #99ff99;
+    border-color: #eed3d7;
     text-align: center;
 
  }

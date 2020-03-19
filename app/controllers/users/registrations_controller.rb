@@ -11,11 +11,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    email= params[:user]
-    
-    if Member.find_by(email: email[:email])== nil && email != nil
-          flash[:alert] = "Your data is not present,please contact secretary"
-          redirect_to new_user_registration_path 
+    email = params[:user]
+
+    if Member.find_by(email: email[:email]).nil? && !email.nil?
+      flash[:alert] = 'Your data is not present,please contact secretary'
+      redirect_to new_user_registration_path
 
     else
       super
@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
-    # super(resource)
+  # super(resource)
   # end
 
   # The path used after sign up for inactive accounts.

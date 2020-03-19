@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-	devise_scope :user do
-    root to: "devise/sessions#new"
+  devise_scope :user do
+    root to: 'devise/sessions#new'
   end
   devise_for :users
 
   resources :dashbords do
     collection do
       get 'home'
-      put'complain_status_change'
+      put 'complain_status_change'
     end
   end
-  
+
   resources :maintenances do
     collection do
       post 'update_paymet_status'
@@ -18,17 +20,17 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tenants do 
+  resources :tenants do
     collection do
-      get'search'
+      get 'search'
     end
   end
- 
- resources :members do 
-  collection do
+
+  resources :members do
+    collection do
+    end
   end
- end
-  
+
   resources :expense do
     collection do
       get 'expense_list'
@@ -37,28 +39,27 @@ Rails.application.routes.draw do
       post 'search'
     end
   end
-  
-  resources :vehicals do 
+
+  resources :vehicals do
     collection do
       post 'search'
       post 'vehical_slot'
     end
   end
- 
+
   resources :notice do
     collection do
       post 'send_notice'
     end
   end
 
-  resources :users do 
-    collection do 
-       post'complain'
+  resources :users do
+    collection do
+      post 'complain'
     end
   end
- 
+
   resources :visitors
-  
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
