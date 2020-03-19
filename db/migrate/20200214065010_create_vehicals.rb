@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateVehicals < ActiveRecord::Migration[6.0]
   def change
     create_table :vehicals do |t|

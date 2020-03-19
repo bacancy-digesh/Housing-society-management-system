@@ -1,23 +1,23 @@
 <%  if current_user.has_role? :admin %>
 <div class="main">
-<center>
-<h3 style="font-weight: bold;">Notice</h3>
-</center>
-<div class="container">
-<%= form_with model:@notice,local:true,url:send_notice_path do |f| %>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Subject : </label>
-    <%= f.text_field :subject, autofocus: true,class: "form-control" %>
-  </div>
-<div class="form-group">
-  <label for="comment">Message:</label>
-  <%= f.text_area :message, autofocus: true,class: "form-control" %>
-</div>
+	<center>
+		<h3 style="font-weight: bold;">Notice</h3>
+	</center>
+	<div class="container">
+		<%= form_with model:@notice,local:true,url:send_notice_notice_index_path do |f| %>
+ 			<div class="form-group">
+    			<label for="exampleInputEmail1">Subject : </label>
+    			<%= f.text_field :subject, autofocus: true,class: "form-control" %>
+  			</div>
+			<div class="form-group">
+  				<label for="comment">Message:</label>
+  				<%= f.text_area :message, autofocus: true,class: "form-control" %>
+			</div>
 
- <center>
- 	 <%= f.submit "Send", class: "btn btn-success"%>
- 	 </center>
-<%end%>
-</div>
+ 		<center>
+ 	 		<%= f.submit "Send", class: "btn btn-success"%>
+ 	 	</center>
+		<%end%>
+	</div>
 </div>
 <%end%>

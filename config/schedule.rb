@@ -24,13 +24,13 @@ job_type :script, ' cd :path && PATH=:env_path:"$PATH" RAILS_ENV=:environment bu
 #   runner "MyModel.some_method"
 #   rake "some:great:rake:task"
 # end
-#tput, "/path/to/my/cron_log.log"
+# tput, "/path/to/my/cron_log.log"
 #
 
-every '0 0 29 * *'do
+every '0 0 29 * *' do
   # command "/usr/bin/some_great_command"
-  #  
-  runner "Member.monthly_mail"
+  #
+  runner 'Member.monthly_mail'
   # rake "some:great:rake:task"
 end
 #

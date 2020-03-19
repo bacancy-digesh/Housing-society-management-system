@@ -3,6 +3,7 @@
  <div class="main">
   <center>
 <table>
+
             <tr>
               <td>Owner Name :-</td>
               <td id="owner_name">
@@ -17,11 +18,11 @@
 	<div class="login-form">
 		<%= form_with model:@tenant,local:true do |f| %>
     <div class="form-group">
-      <%= select_tag(:owner_block, options_from_collection_for_select(Member.select(:block).distinct, :block, :block), include_blank: "Select Block") %>
+      <%= select_tag(:owner_block, options_from_collection_for_select(owner_block, :block, :block), include_blank: "Select Block") %>
     </div>
 
 <div class="form-group">
-    <%= select_tag(:owner_house_no, options_from_collection_for_select(Member.select(:house_no).distinct, :house_no,:house_no), include_blank: "Select House No") %>
+    <%= select_tag(:owner_house_no, options_from_collection_for_select(owner_house, :house_no,:house_no), include_blank: "Select House No") %>
   </div>
 			<div class="form-group">
 			    <%= f.label :tenant_name %><br />
