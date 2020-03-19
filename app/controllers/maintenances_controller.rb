@@ -3,7 +3,7 @@
 class MaintenancesController < ApplicationController
   def maintenance_detail
     @member = Member.where(block: params[:owner_block])
-    @owner_block=Member
+    @owner_block = Member
     member_ids = []
 
     @member.each do |member|

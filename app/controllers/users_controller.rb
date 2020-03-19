@@ -3,7 +3,10 @@
 class UsersController < ApplicationController
   before_action :get_user
   def index
-    maintanence_of_current_month = PaymentRecord.where(date_of_maintanance: DateTime.current.beginning_of_month..DateTime.current.end_of_month, member_id: @@user.id)
+    maintanence_of_current_month = PaymentRecord.where(date_of_maintanance:
+                                  DateTime.current.beginning_of_month..
+                                  DateTime.current.end_of_month,
+                                                       member_id: @@user.id)
     @user = @@user
     if maintanence_of_current_month.first.status == false
       @current_month_maintenance_status = 'Pendding'

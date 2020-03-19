@@ -9,8 +9,7 @@ class Member < ApplicationRecord
   has_many :complains
   has_one :user, dependent: :destroy
 
-
-  scope :owner_block, ->{self.select(:block)}
+  scope :owner_block, -> { self.select(:block) }
 
   def self.monthly_mail
     @current_maintenance = Maintenance.last.amount
