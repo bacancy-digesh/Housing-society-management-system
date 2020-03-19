@@ -2,17 +2,20 @@
 
 class VehicalsController < ApplicationController
   def search
-    @vehical = Vehical.find_by(vehical_no: params[:vehical_no])
+    @vehical = Vehical.where(vehical_no: params[:vehical_no])
 
-    @slot = if @vehical.parking_slot.nil?
-              'Not Allocate'
-            else
-              @vehical.parking_slot.slot
-            end
+    # @slot = if @vehical.parking_slot.nil?
+    #           'Not Allocate'
+    #         else
+    #           @vehical.parking_slot.slot
+    #         end
     render :index, object: @vehical
   end
 
-  def index; end
+  def index
+    @vehical= Vehical.all
+    byebug
+  end
 
   def vehical_slot
     vehical_slot = ParkingSlot.new(params.permit(:slot))
