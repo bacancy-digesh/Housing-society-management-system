@@ -1,4 +1,4 @@
-<%  if current_user.has_role? :admin %>
+<%  if admin? %>
 <%= javascript_pack_tag 'tenant' %>
  <div class="main">
   <center>

@@ -27,7 +27,6 @@ class ExpenseController < ApplicationController
   private
 
   def params_permit
-    byebug
     params.require(:expense).permit(:title, :description, :date, :amount)
   end
 end
