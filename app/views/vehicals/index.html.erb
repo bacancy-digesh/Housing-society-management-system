@@ -76,32 +76,28 @@
     <table class="table">
       <tr>
         <td>Vehical No</td>
-        <td id="vehical_no"><%= @vehical.vehical_no %></td>
-      </tr>
-      <tr>
         <td>Description</td>
-        <td><%= @vehical.description %></td>
-      </tr>
-      <tr>
-        <td>Parking Slot</td>
-        <td><%= @slot %></td>
-      </tr>
-      <tr>
         <td>Owner</td>
-        <td><%= @vehical.member.owner_name%></td>
-      </tr>
-      <tr>
         <td>Contact No</td>
-        <td><%= @vehical.member.contact_no %></td>
+        
       </tr>
+      <% @vehical.each do |vehical|%>
       <tr>
+        <td><%= vehical.vehical_no %></td>
+        <td><%= vehical.description %></td>
+        <td><%= vehical.member.owner_name%></td>
+        <td><%= vehical.member.contact_no %></td>
         <td><div class="p-2">
             <div class="btn btn-primary">
               <%= link_to "Delete",vehicals_path(@vehical),method: :delete,:class => "text-light"%>
             </div>
           </div>
         </td>
+
       </tr>
+      <%end%>
+     
+      
     </table>
   </div>
   <%end%>

@@ -6,7 +6,7 @@
 require("jquery")
 require("@rails/ujs").start()
 require("turbolinks").start()
-require ("rails.validations")
+
 require('@client-side-validations/client-side-validations')
 require("@rails/activestorage").start()
 require("channels")

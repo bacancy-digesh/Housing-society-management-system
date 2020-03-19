@@ -3,7 +3,7 @@ $(document).ready(function () {
                 
                 $.ajax({
                     type: "GET",
-                    url: "/search",
+                    url: "/tenants/search",
                     data: {owner_house_no:  $("#owner_house_no").val(),owner_block:  $("#owner_block").val() },
                     ContentType: "application/json; charset=utf-8",
                     dataType: "json",

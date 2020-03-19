@@ -5,8 +5,10 @@
       <div class="small-box bg-info">
         <div class="inner">
           <h3><%= @maintanence_of_current_month_amount%></h3>
+          
           <div class="d-flex">
             <p> Current Month Maintenance Amount</p>
+            <a href="#all_maintenance"  class="btn btn-success text-red ml-auto" data-toggle="modal">All Maintenance</a>
           </div>
         </div>
       </div>
@@ -257,6 +259,42 @@
   </div>
 </div>
 </div>
+
+
+<div id="all_maintenance" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> All Maintenance</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+       <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+              <% @all_maintanence.each do |maintanence| %>
+              <tr>
+                <td><%= maintanence.total_month_maintanence %></td>
+                <td><%= maintanence.date_of_maintanance %></td>
+                <td><%= maintanence.status %></td>
+              </tr>
+              <%end%>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
 
 
 <div id="visitor" class="modal fade" tabindex="-1">

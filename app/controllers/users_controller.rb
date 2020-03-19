@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @all_complain = Complain.where(member_id: @@user.id)
     @visitors = Visitor.where(member_id: @@user.id)
     @vehicles = Vehical.where(member_id: @@user.id)
+    @all_maintanence=PaymentRecord.where(member_id: @@user.id)
   end
 
   def complain
